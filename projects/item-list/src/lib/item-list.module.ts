@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ItemListComponent } from './item-list.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -8,6 +10,8 @@ import { ItemListComponent } from './item-list.component';
     ItemListComponent
   ],
   imports: [
+    FormsModule,
+    CommonModule
   ],
   exports: [
     ItemListComponent

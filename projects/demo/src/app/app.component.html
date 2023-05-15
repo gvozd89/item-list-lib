@@ -1,0 +1,75 @@
+<div class="main-wrap">
+  <h2>Item List Demo</h2>
+  <div class="mb-2">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="selectionPanelState = true"
+                           (closed)="selectionPanelState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Open to select what mode you wish to apply (ex. 'single' or 'multiple')
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expansion-content-wrapper">
+          <mat-form-field appearance="fill">
+            <mat-label>Selection mode</mat-label>
+            <mat-select [(value)]="multiple">
+              <mat-option value="false">Single</mat-option>
+              <mat-option value="true">Multiple</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="mb-2">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="addItemPanelState = true"
+                         (closed)="addItemPanelState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Open to add new item to the list of items
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="expansion-content-wrapper">
+            <mat-form-field class="example-full-width">
+              <mat-label>Name</mat-label>
+              <input name="newItemName" matInput type="text" [(ngModel)]="newItemName"/>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Description</mat-label>
+              <input name="newItemDescription" matInput type="text" [(ngModel)]="newItemDescription"/>
+            </mat-form-field>
+            <button mat-button color="primary" (click)="addItem()">ADD</button>
+        </div>
+      </mat-expansion-panel>
+  </mat-accordion>
+  </div>
+  
+  <div class="item-list-library">
+    <h3>
+      Item list library
+    </h3>
+    <lib-item-list [multiple]="multiple"
+      [items$]="data"
+      (selectionChanged)="handleSelectionChanged($event)">
+    </lib-item-list>
+  </div>
+
+  <div class="selected-items" *ngIf="selectedItems.length">
+    <h3>Selected items</h3>
+    <div class="d-flex flex-wrap justify-content-center">
+      <mat-chip-listbox aria-label="Selected Items">
+        <mat-chip color="primary" *ngFor="let selectedItem of selectedItems">
+          {{ selectedItem.name }}
+        </mat-chip>
+      </mat-chip-listbox>
+    </div>
+  </div>
+</div>
+
+<div class="back-to-top" [ngClass]="{'show': scrolled}">
+  <button mat-mini-fab color="primary" (click)="scrollToTop()">
+    &#8679;
+  </button>
+</div>
+

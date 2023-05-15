@@ -1,0 +1,18 @@
+<div class="item-list-wrap">
+  <div class="item" *ngFor="let item of items">
+    <div class="item-info">
+      <div class="info">
+        <div class="title">Name:</div>
+        <div>{{ item.name }}</div>
+        <div class="title">Description:</div>
+        <div>{{ item.description }}</div>
+      </div>
+      <div class="input-wrap">
+        <input type="checkbox" [checked]="item.selected" (change)="handleItemClick(item)"/>
+      </div>
+    </div>
+    <div class="card-legend">
+      *To select the item from list, click checkbox
+    </div>
+  </div>
+</div>

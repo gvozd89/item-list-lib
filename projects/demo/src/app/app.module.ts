@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ItemListModule } from 'item-list';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { ListService } from 'projects/demo/services/list.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +13,11 @@ import { ItemListModule } from 'item-list';
   ],
   imports: [
     BrowserModule,
-    ItemListModule
+    FormsModule,
+    ItemListModule,
+    SharedModule,
   ],
-  providers: [],
+  providers: [ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

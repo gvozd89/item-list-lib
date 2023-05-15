@@ -1,0 +1,68 @@
+.item-list-wrap {
+	padding: 30px;
+	display: flex;
+	flex-wrap: wrap;
+    gap: 10px;
+    .item {
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        flex: 1 0 33%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        min-height: 100px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.7);
+        &:hover {
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+        }
+        .item-info {
+            display: flex;
+            height: -webkit-fill-available;
+            .info {
+                width: calc(100% - 30px);
+                display: flex;
+                flex-direction: column;
+                font-size: 14px;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                border-left: 1px solid rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                padding: 0.5rem;
+                .title {
+                    font-weight: 500;
+                    padding-left: 0;
+                }
+                div {
+                    padding-left: 0.5rem;
+                }
+            }
+            .input-wrap {
+                width: 42px;
+                display: flex;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                border-right: 1px solid rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                padding: 0.5rem;
+                input {
+                    margin: auto;
+                    height: 25px;
+                    width: 25px;
+                }
+            }
+        }
+        .card-legend {
+            margin-top: auto;
+            font-size: 10px;
+            font-weight: 300;
+        }
+	}
+}
+
+@media (max-width: 800px) {
+    .item-list-wrap {
+      flex-direction: column;
+      .item {
+        flex: 1;
+      }
+    }
+}
